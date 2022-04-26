@@ -1,10 +1,16 @@
 .button {
+  cursor: pointer;
   padding: 0.8rem;
   font-size: 1.4rem;
   border-radius: 0.5rem;
   background-color: transparent;
   border: 0.1rem solid currentColor;
   line-height: 1;
+  transition: all 0.2s;
+  background-color: var(--transparent);
+  &:hover {
+    background-color: var(--transparent-light);
+  }
 
   & > * + * {
     margin-left: 1rem;
@@ -18,10 +24,18 @@
     color: var(--light);
     background-color: var(--primary);
     border-color: var(--primary);
+
+    &:hover {
+      background-color: var(--primary-dark);
+      border-color: var(--primary-dark);
+    }
   }
   &_ghost {
     color: var(--text-dark);
     background-color: var(--transparent);
     border-color: var(--gray-light);
+    &:hover {
+      border-color: var(--transparent-light);
+    }
   }
 }
