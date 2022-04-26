@@ -6,6 +6,7 @@ import Tag from '../components/Tag/Tag';
 import ArrowIcon from '../components/icons/Arrow';
 import Rating from '../components/Rating/Rating';
 import { useState } from 'react';
+import Layout from '../layout/Layout';
 
 const Home = () => {
   const [score, setScore] = useState(0);

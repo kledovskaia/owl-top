@@ -1,0 +1,27 @@
+.layout {
+  min-height: 100vh;
+
+  @media screen and (min-width: 50rem) {
+    display: grid;
+    grid-template-columns: auto 23rem minmax(32rem, 120rem) auto;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      '. header header .'
+      '. sidebar main .'
+      'footer footer footer footer';
+    gap: 2rem 3rem;
+  }
+
+  &__header {
+    grid-area: header;
+  }
+  &__sidebar {
+    grid-area: sidebar;
+  }
+  &__main {
+    grid-area: main;
+  }
+  &__footer {
+    grid-area: footer;
+  }
+}
