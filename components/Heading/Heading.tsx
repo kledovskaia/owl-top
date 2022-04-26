@@ -32,8 +32,6 @@ const Heading: FC<Props> = ({ className, children, ...props }) => {
 
   const Component = headingVariants[headingType || 'h1'];
 
-  console.log(headingType);
-
   return (
     <Component
       className={cn(
