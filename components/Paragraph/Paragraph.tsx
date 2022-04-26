@@ -18,12 +18,11 @@ type Props = {
 >;
 
 const Paragraph: FC<Props> = ({ className, children, ...props }) => {
-  const appliedModificators = Object.entries(props).filter(
+  const propEntries = Object.entries(props);
+  const appliedModificators = propEntries.filter(
     ([key]) => key in Modificators
   );
-  const restProps = Object.entries(props).filter(
-    ([key]) => !(key in Modificators)
-  );
+  const restProps = propEntries.filter(([key]) => !(key in Modificators));
 
   return (
     <p
