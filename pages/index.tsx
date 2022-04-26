@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Heading from '../components/Heading/Heading';
 import Paragraph from '../components/Paragraph/Paragraph';
 import Tag from '../components/Tag/Tag';
 
@@ -11,7 +12,9 @@ const Home = () => {
       <Paragraph small>Hello World!</Paragraph>
       <Paragraph medium>Hello World!</Paragraph>
       <Paragraph large>Hello World!</Paragraph>
+      <br />
       <hr />
+      <br />
       <Tag>Tag</Tag>
       <Tag small>Tag</Tag>
       <Tag red>Tag</Tag>
@@ -37,6 +40,18 @@ const Home = () => {
       <Tag gray small>
         Tag
       </Tag>
+      <br />
+      <hr />
+      <br />
+      <Heading>Hello World!</Heading>
+      <Heading h1>Hello World!</Heading>
+      <Heading h2>Hello World!</Heading>
+      <Heading h3>Hello World!</Heading>
+      <Heading h4>Hello World!</Heading>
+      <Heading h5>Hello World!</Heading>
+      <br />
+      <hr />
+      <br />
     </>
   );
 };

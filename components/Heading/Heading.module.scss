@@ -1,0 +1,24 @@
+.heading {
+  line-height: 1.35;
+  &_h1 {
+  }
+  &_h2 {
+    font-weight: 500;
+    font-size: 2.6rem;
+  }
+  &_h3 {
+    font-weight: 600;
+    font-size: 2rem;
+  }
+  &_h4 {
+    font-weight: 700;
+    font-size: 1.6rem;
+  }
+  &_h5 {
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.7;
+  }
+  &_h6 {
+  }
+}
