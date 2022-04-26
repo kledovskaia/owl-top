@@ -1,2 +1,42 @@
 .tag {
+  line-height: 1;
+  border-radius: 2rem;
+  border: 0.1rem solid currentColor;
+  font-size: 1.4rem;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+
+  &_small {
+    padding: 0.3rem 1rem;
+    font-weight: 500;
+    font-size: 1.2rem;
+  }
+  &_medium {
+  }
+  &_large {
+    font-weight: 700;
+  }
+  &_primary {
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+  &_ghost {
+    color: var(--text-dark);
+    border-color: var(--gray-light);
+  }
+  &_red {
+    color: var(--light);
+    background-color: var(--red);
+    border-color: var(--red);
+  }
+  &_green {
+    color: var(--green);
+    border-color: var(--green-light);
+    background-color: var(--green-light);
+  }
+  &_gray {
+    color: var(--light);
+    background-color: var(--gray);
+    border-color: var(--gray);
+  }
 }

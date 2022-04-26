@@ -2,14 +2,29 @@ import { DetailedHTMLProps, FC, HTMLAttributes, memo } from 'react';
 import cn from 'classnames';
 import styles from './Tag.module.scss';
 
-const modificators = ['primary', 'ghost', 'green', 'red'];
+enum Modificators {
+  primary,
+  ghost,
+  red,
+  green,
+  gray,
+  small,
+  medium,
+  large,
+}
 
-interface Props
-  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+type Modificator = keyof typeof Modificators;
+
+type Props = {
+  [key in Modificator]?: boolean;
+} & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 const Tag: FC<Props> = ({ className, children, ...props }) => {
-  const appliedModificators = Object.entries(props).filter(([key]) =>
-    modificators.includes(key)
+  const appliedModificators = Object.entries(props).filter(
+    ([key]) => key in Modificators
+  );
+  const restProps = Object.entries(props).filter(
+    ([key]) => !(key in Modificators)
   );
 
   return (
@@ -24,7 +39,7 @@ const Tag: FC<Props> = ({ className, children, ...props }) => {
           ])
         )
       )}
-      {...props}
+      {...restProps}
     >
       {children}
     </div>

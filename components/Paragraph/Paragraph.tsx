@@ -17,7 +17,7 @@ type Props = {
   HTMLParagraphElement
 >;
 
-const Paragraph: FC<Props> = ({ children, className, ...props }) => {
+const Paragraph: FC<Props> = ({ className, children, ...props }) => {
   const appliedModificators = Object.entries(props).filter(
     ([key]) => key in Modificators
   );
