@@ -1,0 +1,27 @@
+.footer {
+  padding: 2.5rem 3rem;
+  color: var(--light);
+  background-color: var(--primary);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  justify-items: center;
+
+  @media screen and (min-width: 65rem) {
+    grid-template-columns: 1fr auto auto;
+    gap: 4rem;
+    justify-items: normal;
+  }
+
+  &__copy {
+  }
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s;
+
+    &:hover {
+      color: var(--gray);
+    }
+  }
+}
