@@ -1,8 +1,24 @@
+:root {
+  --light: #ffffff;
+  --text: #787d85;
+  --text-dark: #3b434e;
+  --text-light: #a4a4a4;
+  --primary: #7653fc;
+  --orange: #fc836d;
+  --red: #de0000;
+  --green: #1dc37e;
+  --green-light: #c8f8e4;
+  --gold: #dcb44e;
+  --gray: #b3c0d9;
+  --gray-light: #ebebeb;
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
+  color: var(--dark);
   font-size: 1.6rem;
   font-family: 'Noto Sans', sans-serif;
 }
