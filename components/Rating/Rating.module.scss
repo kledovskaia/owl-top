@@ -1,2 +1,16 @@
 .rating {
+  & > * + * {
+    padding-left: 0.3rem;
+  }
+
+  &__star {
+    &_editable {
+      cursor: pointer;
+      transition: fill 0.1s;
+    }
+
+    &_filled {
+      fill: var(--primary);
+    }
+  }
 }

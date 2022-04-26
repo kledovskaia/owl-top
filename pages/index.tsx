@@ -4,8 +4,12 @@ import Heading from '../components/Heading/Heading';
 import Paragraph from '../components/Paragraph/Paragraph';
 import Tag from '../components/Tag/Tag';
 import ArrowIcon from '../components/icons/Arrow';
+import Rating from '../components/Rating/Rating';
+import { useState } from 'react';
 
 const Home = () => {
+  const [score, setScore] = useState(0);
+
   return (
     <>
       <Head>
@@ -61,6 +65,12 @@ const Home = () => {
         <span>Hello World!</span>
         <ArrowIcon />
       </Button>
+      <br />
+      <br />
+      <hr />
+      <br />
+      <Rating score={score} updateScore={setScore} editable />
+      <Rating />
     </>
   );
 };
