@@ -7,9 +7,9 @@ const Home = () => {
       <Head>
         <title>Top App</title>
       </Head>
-      <Paragraph size="s">Hello World!</Paragraph>
-      <Paragraph size="m">Hello World!</Paragraph>
-      <Paragraph size="l">Hello World!</Paragraph>
+      <Paragraph small>Hello World!</Paragraph>
+      <Paragraph medium>Hello World!</Paragraph>
+      <Paragraph large>Hello World!</Paragraph>
     </>
   );
 };

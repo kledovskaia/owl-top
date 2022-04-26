@@ -2,24 +2,42 @@ import { DetailedHTMLProps, FC, HTMLAttributes } from 'react';
 import cn from 'classnames';
 import styles from './Paragraph.module.scss';
 
-interface Props
-  extends DetailedHTMLProps<
-    HTMLAttributes<HTMLParagraphElement>,
-    HTMLParagraphElement
-  > {
-  size?: 's' | 'm' | 'l';
+enum Modificators {
+  small,
+  medium,
+  large,
 }
 
-const Paragraph: FC<Props> = ({
-  size = 'm',
-  children,
-  className,
-  ...props
-}) => {
+type Modificator = keyof typeof Modificators;
+
+type Props = {
+  [key in Modificator]?: boolean;
+} & DetailedHTMLProps<
+  HTMLAttributes<HTMLParagraphElement>,
+  HTMLParagraphElement
+>;
+
+const Paragraph: FC<Props> = ({ children, className, ...props }) => {
+  const appliedModificators = Object.entries(props).filter(
+    ([key]) => key in Modificators
+  );
+  const restProps = Object.entries(props).filter(
+    ([key]) => !(key in Modificators)
+  );
+
   return (
     <p
-      className={cn(className, styles.paragraph, styles[`paragraph_${size}`])}
-      {...props}
+      className={cn(
+        className,
+        styles.paragraph,
+        Object.fromEntries(
+          appliedModificators.map(([key, value]) => [
+            styles[`paragraph_${key}`],
+            value,
+          ])
+        )
+      )}
+      {...restProps}
     >
       {children}
     </p>

@@ -1,12 +1,12 @@
 .paragraph {
-  &_s {
+  line-height: 1.5;
+  &_small {
     line-height: 1.7;
     font-size: 1.4rem;
   }
-  &_m {
-    line-height: 1.5;
+  &_medium {
   }
-  &_l {
+  &_large {
     font-size: 1.9rem;
     line-height: 1.6;
   }
