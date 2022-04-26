@@ -1,0 +1,19 @@
+.button {
+  padding: 0.8rem;
+  font-size: 1.4rem;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  border: 0.1rem solid currentColor;
+  line-height: 1;
+
+  &_primary {
+    color: var(--light);
+    background-color: var(--primary);
+    border-color: var(--primary);
+  }
+  &_ghost {
+    color: var(--text-dark);
+    background-color: var(--transparent);
+    border-color: var(--gray-light);
+  }
+}

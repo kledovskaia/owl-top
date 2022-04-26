@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Button from '../components/Button/Button';
 import Heading from '../components/Heading/Heading';
 import Paragraph from '../components/Paragraph/Paragraph';
 import Tag from '../components/Tag/Tag';
@@ -52,6 +53,9 @@ const Home = () => {
       <br />
       <hr />
       <br />
+      <Button>Hello World!</Button>
+      <Button primary>Hello World!</Button>
+      <Button ghost>Hello World!</Button>
     </>
   );
 };
