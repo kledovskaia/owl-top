@@ -2,7 +2,7 @@ import { FC, SVGAttributes } from 'react';
 
 type Props = SVGAttributes<SVGElement>;
 
-export const Students: FC<Props> = (props) => {
+const Students: FC<Props> = (props) => {
   return (
     <svg
       width="24"
@@ -17,3 +17,5 @@ export const Students: FC<Props> = (props) => {
     </svg>
   );
 };
+
+export default Students;
