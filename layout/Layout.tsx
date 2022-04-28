@@ -5,9 +5,10 @@ import Header from './Header/Header';
 import Sidebar from './Sidebar/Sidebar';
 import Footer from './Footer/Footer';
 import { MenuContextProvider } from '../context/MenuContext';
+import { PageProps } from '../@types/types';
 
 type Props = {
-  menu: Menu;
+  menu: PageProps[];
 } & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 const Layout: FC<Props> = ({ className, children, menu, ...props }) => {

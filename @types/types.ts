@@ -1,5 +1,8 @@
-type PartialRecord = void; // TODO
-
+export enum Category {
+  Courses,
+  School,
+  Student,
+}
 interface Id {
   secondCategory: string;
 }
@@ -22,9 +25,10 @@ interface Domain {
   inCity: string;
 }
 
-interface PageProps {
+export interface PageProps {
   menu: Menu[];
-  firstCategory: number;
+  firstCategory: Category;
+  firstCategoryName: keyof typeof Category;
   domain?: any;
   domains: Domain[];
 }

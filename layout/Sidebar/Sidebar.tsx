@@ -6,7 +6,9 @@ type Props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 const Sidebar: FC<Props> = (props) => {
   const { menu } = useMenu();
 
-  return <div {...props}>Sidebar</div>;
+  console.log(menu);
+
+  return <div {...props}></div>;
 };
 
 export default Sidebar;
