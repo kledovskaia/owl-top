@@ -4,7 +4,7 @@ import '../styles/globals.scss';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout>
+    <Layout menu={pageProps.menu}>
       <Component {...pageProps} />
     </Layout>
   );
