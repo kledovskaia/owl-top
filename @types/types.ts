@@ -101,11 +101,11 @@ interface Domain {
 
 export interface PageProps {
   menu: Menu[];
-  page: Page;
-  products: Product[];
   firstCategory: Category;
   domain?: any;
   domains: Domain[];
+  page?: Page;
+  products?: Product[];
 }
 
 export interface RootObject {

@@ -1,5 +1,11 @@
 import { useRouter } from 'next/router';
-import { DetailedHTMLProps, FC, HTMLAttributes } from 'react';
+import {
+  DetailedHTMLProps,
+  FC,
+  HTMLAttributes,
+  useEffect,
+  useState,
+} from 'react';
 import { useMenu } from '../../context/MenuContext';
 import cn from 'classnames';
 import styles from './Sidebar.module.scss';
@@ -10,42 +16,56 @@ type Props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 const Sidebar: FC<Props> = (props) => {
   const { menu } = useMenu();
   const router = useRouter();
+  const [currentFirst, setCurrentFirst] = useState<string>();
+  const [currentSecond, setCurrentSecond] = useState<string>();
+  const [currentThird, setCurrentThird] = useState<string>();
+
+  useEffect(() => {
+    const [, first, third] = router.asPath.split('/');
+    setCurrentFirst(first);
+    setCurrentThird(third);
+  }, [router]);
 
   return (
     <div {...props}>
       <ul>
-        {menu?.map((firstLevel) => (
+        {menu?.map((firstLevel, index) => (
           <li key={firstLevel.firstCategory}>
-            <h2>{firstLevel.firstCategoryLabel}</h2>
+            <h2 onClick={() => setCurrentFirst(firstLevel.firstCategoryName)}>
+              {firstLevel.firstCategoryLabel}
+            </h2>
             <ul
               className={cn({
-                [styles.closed]: !router.asPath
-                  .split('/')
-                  .includes(firstLevel.firstCategoryLabel),
+                [styles.closed]: firstLevel.firstCategoryName !== currentFirst,
               })}
             >
               {firstLevel.menu.map((secondLevel) => (
                 <li key={secondLevel._id.secondCategory}>
                   <h3
-                    className={cn({
-                      [styles.closed]: !router.asPath
-                        .split('/')
-                        .some((param) =>
-                          secondLevel.pages.some((page) => page.alias === param)
-                        ),
-                    })}
+                    onClick={() =>
+                      setCurrentSecond(secondLevel._id.secondCategory)
+                    }
                   >
                     {secondLevel._id.secondCategory}
                   </h3>
                   <ul
                     className={cn({
-                      [styles.closed]: !router.asPath
-                        .split('/')
-                        .includes(secondLevel._id.secondCategory),
+                      [styles.closed]:
+                        currentSecond !== secondLevel._id.secondCategory &&
+                        secondLevel.pages.every(
+                          (page) => page.alias !== currentThird
+                        ),
                     })}
                   >
                     {secondLevel.pages.map((thirdLevel) => (
-                      <li key={thirdLevel._id}>{thirdLevel.title}</li>
+                      <Link
+                        href={`/${firstLevel.firstCategoryName}/${thirdLevel.alias}`}
+                        key={thirdLevel._id}
+                      >
+                        <a>
+                          <li>{thirdLevel.title}</li>
+                        </a>
+                      </Link>
                     ))}
                   </ul>
                 </li>

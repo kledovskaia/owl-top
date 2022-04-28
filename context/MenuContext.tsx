@@ -6,11 +6,11 @@ import {
   useContext,
   useState,
 } from 'react';
-import { PageProps } from '../@types/types';
+import { MenuProps } from '../@types/types';
 
 type MenuContext = {
-  menu: PageProps[];
-  setMenu: (menu: PageProps[]) => void;
+  menu: MenuProps[];
+  setMenu: (menu: MenuProps[]) => void;
 };
 
 export const MenuContext = createContext<MenuContext>({
@@ -19,11 +19,11 @@ export const MenuContext = createContext<MenuContext>({
 });
 
 export const MenuContextProvider: FC<
-  PropsWithChildren<{ menu: PageProps[] }>
+  PropsWithChildren<{ menu: MenuProps[] }>
 > = ({ children, menu: initialMenu }) => {
   const [menu, setMenu] = useState(initialMenu);
 
-  const handleSetMenu = useCallback((menu: PageProps[]) => setMenu(menu), []);
+  const handleSetMenu = useCallback((menu: MenuProps[]) => setMenu(menu), []);
 
   return (
     <MenuContext.Provider value={{ menu, setMenu: handleSetMenu }}>
