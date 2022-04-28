@@ -22,6 +22,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         paths.push({
           params: {
             alias,
+            type: category,
           },
         });
       }
