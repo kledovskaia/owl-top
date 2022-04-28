@@ -1,6 +1,13 @@
-export const categories = ['courses', , , , 'school', 'students'];
+export const categories = [
+  'courses',
+  '',
+  '',
+  '',
+  'school',
+  'students',
+] as const;
 export const categoryLabels = {
-  courses: '',
-  school: '',
-  students: '',
+  courses: 'Курсы',
+  school: 'Для школьников',
+  students: 'Студентам',
 };

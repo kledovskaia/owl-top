@@ -1,0 +1,18 @@
+import { MenuProps, RootObject } from '../@types/types';
+
+export const getMenu = async () => {
+  const menu: MenuProps[] = [];
+  const { categories, categoryLabels } = await import('../data/categories');
+  for await (const category of categories) {
+    if (!category) continue;
+    const { pageProps }: RootObject = await import(`../data/${category}.json`);
+    menu.push({
+      menu: pageProps.menu,
+      firstCategory: pageProps.firstCategory,
+      firstCategoryName: category,
+      firstCategoryLabel: categoryLabels[category],
+    });
+  }
+
+  return menu;
+};

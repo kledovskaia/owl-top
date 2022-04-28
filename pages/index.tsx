@@ -1,23 +1,14 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { FC } from 'react';
 import Head from 'next/head';
-import { PageProps } from '../@types/types';
+import { getMenu } from '../helper/getMenu';
 
 export const getStaticProps: GetStaticProps = async () => {
-  const pageProps: PageProps[] = [];
-  const { categories, categoryLabels } = await import('../data/categories');
-  for await (const category of categories) {
-    if (!category) continue;
-    const { pageProps: props } = await import(`../data/${category}.json`);
-    pageProps.push({
-      ...props,
-      firstCategoryName: categoryLabels[category],
-    });
-  }
+  const menu = await getMenu();
 
   return {
     props: {
-      menu: pageProps,
+      menu,
     },
   };
 };
