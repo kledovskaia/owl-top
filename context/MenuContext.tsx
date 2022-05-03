@@ -6,7 +6,6 @@ import {
   useContext,
   useState,
 } from 'react';
-import { MenuProps } from '../@types/types';
 
 type MenuContext = {
   menu: MenuProps[];

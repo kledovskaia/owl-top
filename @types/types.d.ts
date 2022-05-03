@@ -1,31 +1,31 @@
-export enum Category {
+enum Category {
   courses,
   school,
   students,
 }
-export interface MenuProps {
+interface MenuProps {
   menu: Menu[];
   firstCategory: Category;
   firstCategoryName: keyof typeof Category;
   firstCategoryLabel: string;
 }
-export interface Id {
+interface Id {
   secondCategory: string;
 }
 
-export interface MenuItem {
+interface MenuItem {
   alias: string;
   title: string;
   _id: string;
   category: string;
 }
 
-export interface Menu {
+interface Menu {
   _id: Id;
   pages: MenuItem[];
 }
 
-export interface Blog {
+interface Blog {
   h1: string;
   metaTitle: string;
   metaDescription: string;
@@ -33,7 +33,7 @@ export interface Blog {
   _id: string;
 }
 
-export interface Hh {
+interface Hh {
   count: number;
   juniorSalary: number;
   middleSalary: number;
@@ -42,7 +42,7 @@ export interface Hh {
   _id: string;
 }
 
-export interface Page {
+interface Page {
   _id: string;
   firstCategory: number;
   secondCategory: string;
@@ -99,7 +99,7 @@ interface Domain {
   inCity: string;
 }
 
-export interface PageProps {
+interface PageProps {
   menu: Menu[];
   firstCategory: Category;
   domain?: any;
@@ -108,7 +108,7 @@ export interface PageProps {
   products?: Product[];
 }
 
-export interface RootObject {
+interface RootObject {
   pageProps: PageProps;
   __N_SSG: boolean;
 }

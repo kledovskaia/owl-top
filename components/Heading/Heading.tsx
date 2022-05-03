@@ -3,7 +3,7 @@ import cn from 'classnames';
 import styles from './Heading.module.scss';
 import * as headingVariants from './HeadingVariants';
 
-enum Modificators {
+enum Modifications {
   h1,
   h2,
   h3,
@@ -12,25 +12,27 @@ enum Modificators {
   h6,
 }
 
-type Modificator = keyof typeof Modificators;
+type Modification = keyof typeof Modifications;
 
 type Props = {
-  [key in Modificator]?: boolean;
+  handleClick?: () => void;
+} & {
+  [key in Modification]?: boolean;
 } & DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>;
 
 const defaultHeadingType = 'h1';
 
-const Heading: FC<Props> = ({ className, children, ...props }) => {
-  const appliedModificators = Object.keys(props).filter(
-    (key) => key in Modificators
-  ) as Modificator[];
-  const headingType = (appliedModificators.pop() ||
+const Heading: FC<Props> = ({ className, children, handleClick, ...props }) => {
+  const appliedModifications = Object.keys(props).filter(
+    (key) => key in Modifications
+  ) as Modification[];
+  const headingType = (appliedModifications.pop() ||
     defaultHeadingType) as keyof typeof headingVariants;
   const restProps = Object.entries(props).filter(
-    ([key]) => !(key in Modificators)
+    ([key]) => !(key in Modifications)
   );
 
-  const Component = headingVariants[headingType || 'h1'];
+  const Component = headingVariants[headingType];
 
   return (
     <Component
@@ -39,6 +41,7 @@ const Heading: FC<Props> = ({ className, children, ...props }) => {
         styles.heading,
         styles[`heading_${headingType}`]
       )}
+      onClick={handleClick}
       {...restProps}
     >
       {children}
