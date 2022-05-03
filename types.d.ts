@@ -1,48 +1,49 @@
-declare enum Category {
-  courses,
-  school,
-  students,
+enum Category {
+  courses = 0,
+  school = 4,
+  students = 5,
 }
-interface MenuProps {
+
+type MenuProps = {
   menu: Menu[];
   firstCategory: Category;
   firstCategoryName: keyof typeof Category;
   firstCategoryLabel: string;
-}
-interface Id {
+};
+type Id = {
   secondCategory: string;
-}
+};
 
-interface MenuItem {
+type MenuItem = {
   alias: string;
   title: string;
   _id: string;
   category: string;
-}
+};
 
-interface Menu {
+type Menu = {
   _id: Id;
   pages: MenuItem[];
-}
+};
 
-interface Blog {
+type Blog = {
   h1: string;
   metaTitle: string;
   metaDescription: string;
   views: number;
   _id: string;
-}
+};
 
-interface Hh {
+type Hh = {
   count: number;
   juniorSalary: number;
   middleSalary: number;
   seniorSalary: number;
   updatedAt: Date;
   _id: string;
-}
+};
 
-interface Page {
+type Page = {
   _id: string;
   firstCategory: number;
   secondCategory: string;
@@ -62,14 +63,14 @@ interface Page {
   updatedAt: Date;
   __v: number;
   hh: Hh;
-}
+};
 
-interface Characteristic {
+type Characteristic = {
   name: string;
   value: string;
-}
+};
 
-interface Product {
+type Product = {
   _id: string;
   categories: string[];
   tags: string[];
@@ -91,24 +92,24 @@ interface Product {
   reviewAvg?: any;
   advantages: string;
   disAdvantages: string;
-}
+};
 
-interface Domain {
+type Domain = {
   id: string;
   city: string;
   inCity: string;
-}
+};
 
-interface PageProps {
+type PageProps = {
   menu: Menu[];
   firstCategory: Category;
   domain?: any;
   domains: Domain[];
   page?: Page;
   products?: Product[];
-}
+};
 
-interface RootObject {
+type RootObject = {
   pageProps: PageProps;
   __N_SSG: boolean;
-}
+};

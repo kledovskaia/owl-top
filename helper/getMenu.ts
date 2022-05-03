@@ -1,6 +1,6 @@
 export const getMenu = async () => {
   const menu: MenuProps[] = [];
-  const { categories, categoryLabels } = await import('../data/categories');
+  const { categories, categoryLabels } = await import('../data');
   for await (const category of categories) {
     if (!category) continue;
     const { pageProps }: RootObject = await import(`../data/${category}.json`);

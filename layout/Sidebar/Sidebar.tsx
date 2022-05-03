@@ -9,7 +9,7 @@ import Search from '../../components/Search/Search';
 import FirstLevel from './FirstLevel';
 import SecondLevel from './SecondLevel';
 import ThirdLevel from './ThirdLevel';
-import { Category } from '../../@types/types';
+import { Category } from '../../data';
 
 type Props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
