@@ -1,4 +1,4 @@
-enum Category {
+declare enum Category {
   courses,
   school,
   students,

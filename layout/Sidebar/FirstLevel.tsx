@@ -16,6 +16,7 @@ type Props = {
   info: MenuProps;
   activeClassName?: string;
   router: NextRouter;
+  isInitiallyOpen?: boolean;
 } & DetailedHTMLProps<HTMLAttributes<HTMLLIElement>, HTMLLIElement>;
 
 const FirstLevel: FC<Props> = ({
@@ -24,9 +25,10 @@ const FirstLevel: FC<Props> = ({
   info,
   activeClassName,
   router,
+  isInitiallyOpen,
   ...props
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(isInitiallyOpen || false);
   const isInPath = useMemo(
     () => router.asPath.split('/').includes(info.firstCategoryName),
     [router, info.firstCategoryName]

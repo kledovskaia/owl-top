@@ -6,7 +6,6 @@ import {
 } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { DetailedHTMLProps, FC, HTMLAttributes } from 'react';
-import { RootObject } from '../../@types/types';
 import { getMenu } from '../../helper/getMenu';
 
 export const getStaticPaths: GetStaticPaths = async () => {

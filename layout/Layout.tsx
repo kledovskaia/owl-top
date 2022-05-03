@@ -5,7 +5,6 @@ import Header from './Header/Header';
 import Sidebar from './Sidebar/Sidebar';
 import Footer from './Footer/Footer';
 import { MenuContextProvider } from '../context/MenuContext';
-import { MenuProps } from '../@types/types';
 
 type Props = {
   menu: MenuProps[];

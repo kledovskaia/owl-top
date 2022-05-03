@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
-import { DetailedHTMLProps, FC, HTMLAttributes } from 'react';
+import { DetailedHTMLProps, FC, HTMLAttributes, useMemo } from 'react';
 import cn from 'classnames';
-import Link from 'next/link';
 import { useMenu } from '../../context/MenuContext';
 import Logo from '../../components/Logo/Logo';
 
@@ -10,12 +9,19 @@ import Search from '../../components/Search/Search';
 import FirstLevel from './FirstLevel';
 import SecondLevel from './SecondLevel';
 import ThirdLevel from './ThirdLevel';
+import { Category } from '../../@types/types';
 
 type Props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 const Sidebar: FC<Props> = ({ className, ...props }) => {
   const { menu } = useMenu();
   const router = useRouter();
+
+  const isSomeFirstLevelOpen = useMemo(() => {
+    return menu.some((item) =>
+      router.asPath.split('/').includes(item.firstCategoryName)
+    );
+  }, [router, menu]);
 
   return (
     <nav className={cn(className, styles.sidebar)} {...props}>
@@ -24,6 +30,10 @@ const Sidebar: FC<Props> = ({ className, ...props }) => {
       <ul className={styles.sidebar__firstLevel}>
         {menu.map((firstLevel) => (
           <FirstLevel
+            isInitiallyOpen={
+              firstLevel.firstCategory === Category['courses'] &&
+              !isSomeFirstLevelOpen
+            }
             router={router}
             key={firstLevel.firstCategory}
             info={firstLevel}

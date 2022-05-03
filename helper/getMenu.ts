@@ -1,5 +1,3 @@
-import { MenuProps, RootObject } from '../@types/types';
-
 export const getMenu = async () => {
   const menu: MenuProps[] = [];
   const { categories, categoryLabels } = await import('../data/categories');
