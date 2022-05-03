@@ -5,9 +5,9 @@ import styles from './Logo.module.scss';
 
 type Props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
-const Logo: FC<Props> = () => {
+const Logo: FC<Props> = ({ className, ...props }) => {
   return (
-    <div className={styles.logo}>
+    <div className={cn(styles.logo, className)} {...props}>
       <div className={styles.logo__icon}>
         <LogoIcon />
       </div>

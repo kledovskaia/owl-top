@@ -1,6 +1,9 @@
 .sidebar {
-  white-space: nowrap;
   color: var(--text);
+
+  & > * + * {
+    margin-top: 2rem;
+  }
 
   ul {
     list-style-type: none;

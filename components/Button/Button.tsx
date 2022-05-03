@@ -2,15 +2,15 @@ import { ButtonHTMLAttributes, DetailedHTMLProps, FC } from 'react';
 import cn from 'classnames';
 import styles from './Button.module.scss';
 
-enum Modificators {
+enum Modifications {
   primary,
   ghost,
 }
 
-type Modificator = keyof typeof Modificators;
+type Modification = keyof typeof Modifications;
 
 type Props = {
-  [key in Modificator]?: boolean;
+  [key in Modification]?: boolean;
 } & DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
@@ -18,10 +18,10 @@ type Props = {
 
 const Button: FC<Props> = ({ className, children, ...props }) => {
   const propEntries = Object.entries(props);
-  const appliedModificators = propEntries.filter(
-    ([key]) => key in Modificators
+  const appliedModifications = propEntries.filter(
+    ([key]) => key in Modifications
   );
-  const restProps = propEntries.filter(([key]) => !(key in Modificators));
+  const restProps = propEntries.filter(([key]) => !(key in Modifications));
 
   return (
     <button
@@ -29,7 +29,7 @@ const Button: FC<Props> = ({ className, children, ...props }) => {
         className,
         styles.button,
         Object.fromEntries(
-          appliedModificators.map(([key, value]) => [
+          appliedModifications.map(([key, value]) => [
             styles[`button_${key}`],
             value,
           ])

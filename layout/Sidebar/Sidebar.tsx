@@ -14,6 +14,7 @@ import CoursesIcon from '../../public/courses.svg';
 import SchoolIcon from '../../public/school.svg';
 import StudentsIcon from '../../public/students.svg';
 import styles from './Sidebar.module.scss';
+import Search from '../../components/Search/Search';
 
 const menuItems = [
   { icon: <CoursesIcon /> },
@@ -47,6 +48,7 @@ const Sidebar: FC<Props> = ({ className, ...props }) => {
   return (
     <nav className={cn(className, styles.sidebar)} {...props}>
       <Logo />
+      <Search />
       <ul className={styles.sidebar__firstLevel}>
         {menu?.map((firstLevel) => (
           <li key={firstLevel.firstCategory}>
