@@ -3,11 +3,11 @@
   padding: 0.8rem;
   font-size: 1.4rem;
   border-radius: 0.5rem;
-  background-color: transparent;
   border: 0.1rem solid currentColor;
   line-height: 1;
   transition: all 0.2s;
   background-color: var(--transparent);
+
   &:hover {
     background-color: var(--transparent-light);
   }
