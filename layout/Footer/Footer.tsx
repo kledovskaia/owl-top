@@ -1,11 +1,11 @@
-import { DetailedHTMLProps, FC, HTMLAttributes } from 'react';
-import cn from 'classnames';
-import styles from './Footer.module.scss';
+import { DetailedHTMLProps, FC, HTMLAttributes } from 'react'
+import cn from 'classnames'
+import styles from './Footer.module.scss'
 
-type Props = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
+type Props = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
 
 const Footer: FC<Props> = ({ className, ...props }) => {
-  const year = new Date().getFullYear();
+  const year = new Date().getFullYear()
   return (
     <footer className={cn(className, styles.footer)} {...props}>
       <p className={styles.footer__copy}>
@@ -18,7 +18,7 @@ const Footer: FC<Props> = ({ className, ...props }) => {
         Политика конфиденциальности
       </a>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

@@ -67,11 +67,11 @@ const Page: NextPage<Props> = ({ page, products }) => {
     <div>
       <Head>
         <title>{page.metaTitle}</title>
-        <meta name='description' content={page.metaDescription} />
+        <meta name="description" content={page.metaDescription} />
       </Head>
       <h1>{page.title}</h1>
       <ul>
-        {products.map((product) => (
+        {products.map(product => (
           <li key={product._id}>{product.title}</li>
         ))}
       </ul>

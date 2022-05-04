@@ -1,6 +1,6 @@
-import { DetailedHTMLProps, FC, HTMLAttributes, memo } from 'react';
-import cn from 'classnames';
-import styles from './Tag.module.scss';
+import { DetailedHTMLProps, FC, HTMLAttributes, memo } from 'react'
+import cn from 'classnames'
+import styles from './Tag.module.scss'
 
 enum Modificators {
   primary,
@@ -13,18 +13,16 @@ enum Modificators {
   large,
 }
 
-type Modificator = keyof typeof Modificators;
+type Modificator = keyof typeof Modificators
 
 type Props = {
-  [key in Modificator]?: boolean;
-} & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+  [key in Modificator]?: boolean
+} & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 const Tag: FC<Props> = ({ className, children, ...props }) => {
-  const propEntries = Object.entries(props);
-  const appliedModificators = propEntries.filter(
-    ([key]) => key in Modificators
-  );
-  const restProps = propEntries.filter(([key]) => !(key in Modificators));
+  const propEntries = Object.entries(props)
+  const appliedModificators = propEntries.filter(([key]) => key in Modificators)
+  const restProps = propEntries.filter(([key]) => !(key in Modificators))
 
   return (
     <div
@@ -35,14 +33,14 @@ const Tag: FC<Props> = ({ className, children, ...props }) => {
           appliedModificators.map(([key, value]) => [
             `${styles[`tag_${key}`]}`,
             value,
-          ])
-        )
+          ]),
+        ),
       )}
       {...restProps}
     >
       {children}
     </div>
-  );
-};
+  )
+}
 
-export default memo(Tag);
+export default memo(Tag)

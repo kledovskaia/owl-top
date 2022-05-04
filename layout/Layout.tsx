@@ -1,14 +1,14 @@
-import { DetailedHTMLProps, FC, HTMLAttributes } from 'react';
-import cn from 'classnames';
-import styles from './Layout.module.scss';
-import Header from './Header/Header';
-import Sidebar from './Sidebar/Sidebar';
-import Footer from './Footer/Footer';
-import { MenuContextProvider } from '../context/MenuContext';
+import { DetailedHTMLProps, FC, HTMLAttributes } from 'react'
+import cn from 'classnames'
+import styles from './Layout.module.scss'
+import Header from './Header/Header'
+import Sidebar from './Sidebar/Sidebar'
+import Footer from './Footer/Footer'
+import { MenuContextProvider } from '../context/MenuContext'
 
 type Props = {
-  menu: MenuProps[];
-} & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+  menu: MenuProps[]
+} & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 const Layout: FC<Props> = ({ className, children, menu, ...props }) => {
   return (
@@ -20,7 +20,7 @@ const Layout: FC<Props> = ({ className, children, menu, ...props }) => {
       <main className={styles.layout__main}>{children}</main>
       <Footer className={styles.layout__footer} />
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

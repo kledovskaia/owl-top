@@ -1,15 +1,15 @@
-import Link from 'next/link';
-import { DetailedHTMLProps, FC, LiHTMLAttributes, memo } from 'react';
-import Heading from '../../components/Heading/Heading';
-import cn from 'classnames';
-import { NextRouter } from 'next/router';
+import Link from 'next/link'
+import { DetailedHTMLProps, FC, LiHTMLAttributes, memo } from 'react'
+import Heading from '../../components/Heading/Heading'
+import cn from 'classnames'
+import { NextRouter } from 'next/router'
 
 type Props = {
-  info: MenuItem;
-  link: string;
-  activeClassName?: string;
-  router: NextRouter;
-} & DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>;
+  info: MenuItem
+  link: string
+  activeClassName?: string
+  router: NextRouter
+} & DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>
 
 const ThirdLevel: FC<Props> = ({
   className,
@@ -35,7 +35,7 @@ const ThirdLevel: FC<Props> = ({
         </a>
       </Link>
     </li>
-  );
-};
+  )
+}
 
-export default memo(ThirdLevel);
+export default memo(ThirdLevel)

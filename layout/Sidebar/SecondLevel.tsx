@@ -1,4 +1,4 @@
-import { NextRouter } from "next/router"
+import { NextRouter } from 'next/router'
 import {
   DetailedHTMLProps,
   FC,
@@ -8,8 +8,8 @@ import {
   useEffect,
   useMemo,
   useState,
-} from "react"
-import Heading from "../../components/Heading/Heading"
+} from 'react'
+import Heading from '../../components/Heading/Heading'
 
 type Props = {
   info: Menu
@@ -27,9 +27,9 @@ const SecondLevel: FC<Props> = ({
   const isInPath = useMemo(
     () =>
       router.asPath
-        .split("/")
-        .some((item) => info.pages.some((page) => item === page.alias)),
-    [router, info.pages]
+        .split('/')
+        .some(item => info.pages.some(page => item === page.alias)),
+    [router, info.pages],
   )
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const SecondLevel: FC<Props> = ({
   }, [isInPath])
 
   const handleClick = useCallback(() => {
-    if (!isInPath) setIsOpen((state) => !state)
+    if (!isInPath) setIsOpen(state => !state)
   }, [isInPath])
 
   return (

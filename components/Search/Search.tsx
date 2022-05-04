@@ -6,23 +6,23 @@ import {
   memo,
   useCallback,
   useState,
-} from 'react';
-import Button from '../Button/Button';
-import SearchIcon from '../../public/search.svg';
-import styles from './Search.module.scss';
-import cn from 'classnames';
+} from 'react'
+import Button from '../Button/Button'
+import SearchIcon from '../../public/search.svg'
+import styles from './Search.module.scss'
+import cn from 'classnames'
 
 type Props = DetailedHTMLProps<
   FormHTMLAttributes<HTMLFormElement>,
   HTMLFormElement
->;
+>
 
 const Search: FC<Props> = ({ className, ...props }) => {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState('')
 
   const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-    setSearch(event.target.value);
-  }, []);
+    setSearch(event.target.value)
+  }, [])
 
   return (
     <form className={cn(className, styles.search)} {...props}>
@@ -36,7 +36,7 @@ const Search: FC<Props> = ({ className, ...props }) => {
         <SearchIcon />
       </Button>
     </form>
-  );
-};
+  )
+}
 
-export default memo(Search);
+export default memo(Search)

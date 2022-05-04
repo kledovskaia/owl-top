@@ -1,4 +1,4 @@
-import { NextRouter } from 'next/router';
+import { NextRouter } from 'next/router'
 import {
   DetailedHTMLProps,
   FC,
@@ -7,17 +7,17 @@ import {
   useCallback,
   useMemo,
   useState,
-} from 'react';
-import Heading from '../../components/Heading/Heading';
-import { menuItems } from '../../data';
-import cn from 'classnames';
+} from 'react'
+import Heading from '../../components/Heading/Heading'
+import { menuItems } from '../../data'
+import cn from 'classnames'
 
 type Props = {
-  info: MenuProps;
-  activeClassName?: string;
-  router: NextRouter;
-  isInitiallyOpen?: boolean;
-} & DetailedHTMLProps<HTMLAttributes<HTMLLIElement>, HTMLLIElement>;
+  info: MenuProps
+  activeClassName?: string
+  router: NextRouter
+  isInitiallyOpen?: boolean
+} & DetailedHTMLProps<HTMLAttributes<HTMLLIElement>, HTMLLIElement>
 
 const FirstLevel: FC<Props> = ({
   className,
@@ -28,15 +28,15 @@ const FirstLevel: FC<Props> = ({
   isInitiallyOpen,
   ...props
 }) => {
-  const [isOpen, setIsOpen] = useState(isInitiallyOpen || false);
+  const [isOpen, setIsOpen] = useState(isInitiallyOpen || false)
   const isInPath = useMemo(
     () => router.asPath.split('/').includes(info.firstCategoryName),
-    [router, info.firstCategoryName]
-  );
+    [router, info.firstCategoryName],
+  )
 
   const handleClick = useCallback(() => {
-    if (!isInPath) setIsOpen((state) => !state);
-  }, [isInPath]);
+    if (!isInPath) setIsOpen(state => !state)
+  }, [isInPath])
 
   return (
     <li className={className} {...props}>
@@ -54,7 +54,7 @@ const FirstLevel: FC<Props> = ({
       </Heading>
       {(isOpen || isInPath) && children}
     </li>
-  );
-};
+  )
+}
 
-export default memo(FirstLevel);
+export default memo(FirstLevel)

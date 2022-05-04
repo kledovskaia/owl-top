@@ -1,9 +1,9 @@
-import { DetailedHTMLProps, FC, HTMLAttributes, memo } from 'react';
-import cn from 'classnames';
-import LogoIcon from '../../public/logo.svg';
-import styles from './Logo.module.scss';
+import { DetailedHTMLProps, FC, HTMLAttributes, memo } from 'react'
+import cn from 'classnames'
+import LogoIcon from '../../public/logo.svg'
+import styles from './Logo.module.scss'
 
-type Props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type Props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 const Logo: FC<Props> = ({ className, ...props }) => {
   return (
@@ -18,7 +18,7 @@ const Logo: FC<Props> = ({ className, ...props }) => {
         <div className={styles.logo__text}>top</div>
       </h1>
     </div>
-  );
-};
+  )
+}
 
-export default memo(Logo);
+export default memo(Logo)

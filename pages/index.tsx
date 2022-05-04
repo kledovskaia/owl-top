@@ -1,17 +1,17 @@
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { FC } from 'react';
-import Head from 'next/head';
-import { getMenu } from '../helper/getMenu';
+import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import { FC } from 'react'
+import Head from 'next/head'
+import { getMenu } from '../helper/getMenu'
 
 export const getStaticProps: GetStaticProps = async () => {
-  const menu = await getMenu();
+  const menu = await getMenu()
 
   return {
     props: {
       menu,
     },
-  };
-};
+  }
+}
 
 const Home: FC<InferGetStaticPropsType<typeof getStaticProps>> = () => {
   return (
@@ -20,7 +20,7 @@ const Home: FC<InferGetStaticPropsType<typeof getStaticProps>> = () => {
         <title>Top App</title>
       </Head>
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

@@ -1,34 +1,34 @@
-import { useRouter } from 'next/router';
-import { DetailedHTMLProps, FC, HTMLAttributes, useMemo } from 'react';
-import cn from 'classnames';
-import { useMenu } from '../../context/MenuContext';
-import Logo from '../../components/Logo/Logo';
+import { useRouter } from 'next/router'
+import { DetailedHTMLProps, FC, HTMLAttributes, useMemo } from 'react'
+import cn from 'classnames'
+import { useMenu } from '../../context/MenuContext'
+import Logo from '../../components/Logo/Logo'
 
-import styles from './Sidebar.module.scss';
-import Search from '../../components/Search/Search';
-import FirstLevel from './FirstLevel';
-import SecondLevel from './SecondLevel';
-import ThirdLevel from './ThirdLevel';
-import { Category } from '../../data';
+import styles from './Sidebar.module.scss'
+import Search from '../../components/Search/Search'
+import FirstLevel from './FirstLevel'
+import SecondLevel from './SecondLevel'
+import ThirdLevel from './ThirdLevel'
+import { Category } from '../../data'
 
-type Props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type Props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 const Sidebar: FC<Props> = ({ className, ...props }) => {
-  const { menu } = useMenu();
-  const router = useRouter();
+  const { menu } = useMenu()
+  const router = useRouter()
 
   const isSomeFirstLevelOpen = useMemo(() => {
-    return menu.some((item) =>
-      router.asPath.split('/').includes(item.firstCategoryName)
-    );
-  }, [router, menu]);
+    return menu.some(item =>
+      router.asPath.split('/').includes(item.firstCategoryName),
+    )
+  }, [router, menu])
 
   return (
     <nav className={cn(className, styles.sidebar)} {...props}>
       <Logo />
       <Search />
       <ul className={styles.sidebar__firstLevel}>
-        {menu.map((firstLevel) => (
+        {menu.map(firstLevel => (
           <FirstLevel
             isInitiallyOpen={
               firstLevel.firstCategory === Category['courses'] &&
@@ -40,14 +40,14 @@ const Sidebar: FC<Props> = ({ className, ...props }) => {
             activeClassName={styles.active}
           >
             <ul className={styles.sidebar__secondLevel}>
-              {firstLevel.menu.map((secondLevel) => (
+              {firstLevel.menu.map(secondLevel => (
                 <SecondLevel
                   router={router}
                   key={secondLevel._id.secondCategory}
                   info={secondLevel}
                 >
                   <ul className={styles.sidebar__thirdLevel}>
-                    {secondLevel.pages.map((thirdLevel) => (
+                    {secondLevel.pages.map(thirdLevel => (
                       <ThirdLevel
                         router={router}
                         key={thirdLevel._id}
@@ -64,7 +64,7 @@ const Sidebar: FC<Props> = ({ className, ...props }) => {
         ))}
       </ul>
     </nav>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar
