@@ -8,9 +8,9 @@ type Props = {
   items: Page["tags"]
 } & DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
 
-const Skills: FC<Props> = ({ className, items }) => {
+const Skills: FC<Props> = ({ className, items, ...props }) => {
   return (
-    <section className={cn(className, styles.skills)}>
+    <section className={cn(className, styles.skills)} {...props}>
       <Heading h4>Получаемые навыки</Heading>
       <ul className={styles.skills__itemsContainer}>
         {items.map((item) => (
