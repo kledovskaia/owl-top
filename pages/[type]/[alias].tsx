@@ -3,19 +3,21 @@ import {
   GetStaticProps,
   GetStaticPropsContext,
   InferGetStaticPropsType,
-} from 'next';
-import { ParsedUrlQuery } from 'querystring';
-import { DetailedHTMLProps, FC, HTMLAttributes } from 'react';
-import { getMenu } from '../../helper/getMenu';
+  NextPage,
+} from "next"
+import Head from "next/head"
+import { ParsedUrlQuery } from "querystring"
+import Skills from "../../components/Skills/Skills"
+import { getMenu } from "../../helper/getMenu"
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = [];
-  const { categories } = await import('../../data/categories');
+  const paths = []
+  const { categories } = await import("../../data")
   for await (const category of categories) {
-    if (!category) continue;
+    if (!category) continue
     const { pageProps }: RootObject = await import(
       `../../data/${category}.json`
-    );
+    )
     for (const { pages } of pageProps.menu) {
       for (const { alias } of pages) {
         paths.push({
@@ -23,7 +25,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
             alias,
             type: category,
           },
-        });
+        })
       }
     }
   }
@@ -31,16 +33,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths,
     fallback: false,
-  };
-};
+  }
+}
 
 export const getStaticProps: GetStaticProps = async ({
   params,
 }: GetStaticPropsContext<ParsedUrlQuery>) => {
-  const menu = await getMenu();
+  const menu = await getMenu()
   const {
     pageProps: { products, page },
-  }: RootObject = await import(`../../data/${params.alias}.json`);
+  }: RootObject = await import(`../../data/${params.alias}.json`)
 
   return {
     props: {
@@ -48,14 +50,35 @@ export const getStaticProps: GetStaticProps = async ({
       products,
       page,
     },
-  };
-};
+  }
+}
 
-type Props = InferGetStaticPropsType<typeof getStaticProps> &
-  DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type Props = {
+  page: Page
+  products: Product[]
+} & InferGetStaticPropsType<typeof getStaticProps>
 
-const Page: FC<Props> = ({ className, page, products, ...props }) => {
-  return <div {...props}></div>;
-};
+const Page: NextPage<Props> = ({ page, products }) => {
+  console.log(page)
+  console.log(products)
 
-export default Page;
+  return (
+    <div>
+      <Head>
+        <title>{page.metaTitle}</title>
+        <meta name="description" content={page.metaDescription} />
+      </Head>
+      <h1>{page.title}</h1>
+      <ul>
+        {products.map((product) => (
+          <li key={product._id}>{product.title}</li>
+        ))}
+      </ul>
+      {/* <HHruInfo info={page.hh} />
+      {!!page.advantages.length && <Advantages items={page.advantages} />} */}
+      <Skills items={page.tags} />
+    </div>
+  )
+}
+
+export default Page

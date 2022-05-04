@@ -1,4 +1,4 @@
-import { NextRouter } from 'next/router';
+import { NextRouter } from "next/router"
 import {
   DetailedHTMLProps,
   FC,
@@ -8,13 +8,13 @@ import {
   useEffect,
   useMemo,
   useState,
-} from 'react';
-import Heading from '../../components/Heading/Heading';
+} from "react"
+import Heading from "../../components/Heading/Heading"
 
 type Props = {
-  info: Menu;
-  router: NextRouter;
-} & DetailedHTMLProps<HTMLAttributes<HTMLLIElement>, HTMLLIElement>;
+  info: Menu
+  router: NextRouter
+} & DetailedHTMLProps<HTMLAttributes<HTMLLIElement>, HTMLLIElement>
 
 const SecondLevel: FC<Props> = ({
   className,
@@ -23,25 +23,22 @@ const SecondLevel: FC<Props> = ({
   router,
   ...props
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
   const isInPath = useMemo(
     () =>
       router.asPath
-        .split('/')
+        .split("/")
         .some((item) => info.pages.some((page) => item === page.alias)),
     [router, info.pages]
-  );
+  )
 
   useEffect(() => {
-    setIsOpen(isInPath);
-  }, [isInPath]);
+    setIsOpen(isInPath)
+  }, [isInPath])
 
   const handleClick = useCallback(() => {
-    console.log('click');
-    if (!isInPath) {
-      setIsOpen((state) => !state);
-    }
-  }, [isInPath]);
+    if (!isInPath) setIsOpen((state) => !state)
+  }, [isInPath])
 
   return (
     <li className={className} {...props}>
@@ -50,7 +47,7 @@ const SecondLevel: FC<Props> = ({
       </Heading>
       {isOpen && children}
     </li>
-  );
-};
+  )
+}
 
-export default memo(SecondLevel);
+export default memo(SecondLevel)
