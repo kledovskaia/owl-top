@@ -3,7 +3,7 @@ import { DetailedHTMLProps, FC, HTMLAttributes } from 'react'
 import { getMenu } from '../../helper/getMenu'
 
 export const getStaticPaths = async () => {
-  const { categories } = await import('../../data/categories')
+  const { categories } = await import('../../data')
   const paths = categories
     .filter(type => type)
     .map(type => ({

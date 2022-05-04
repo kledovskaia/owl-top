@@ -5,7 +5,7 @@ import {
   HTMLAttributes,
   useState,
 } from 'react'
-import StarIcon from '../icons/Star'
+import StarIcon from '../../public/star.svg'
 import cn from 'classnames'
 import styles from './Rating.module.scss'
 
