@@ -14,26 +14,6 @@
     text-decoration: none;
   }
 
-  &__firstLevel,
-  &__secondLevel,
-  &__thirdLevel {
-    h2,
-    h3,
-    h4 {
-      cursor: pointer;
-      transition: color 0.1s;
-      svg {
-        fill: currentColor;
-        max-width: 2.5rem;
-        max-height: 2.5rem;
-      }
-
-      &:hover {
-        color: var(--primary);
-      }
-    }
-  }
-
   &__firstLevel {
     h2 {
       padding: 1rem 0;
@@ -67,6 +47,26 @@
       font-size: 1.4rem;
       line-height: 1.35;
       padding: 0.5rem 0;
+    }
+  }
+
+  &__firstLevel,
+  &__secondLevel,
+  &__thirdLevel {
+    h2,
+    h3,
+    h4 {
+      cursor: pointer;
+      transition: color 0.1s;
+      svg {
+        fill: currentColor;
+        max-width: 2.5rem;
+        max-height: 2.5rem;
+      }
+
+      &:hover {
+        color: var(--primary);
+      }
     }
   }
 }
