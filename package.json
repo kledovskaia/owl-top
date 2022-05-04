@@ -12,7 +12,8 @@
     "eslint:fix": "eslint . --fix",
     "stylelint": "stylelint \"**/*.scss\"",
     "stylelint:fix": "stylelint \"**/*.scss\" --fix",
-    "prettify": "prettier --write"
+    "prettify": "prettier --write",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
