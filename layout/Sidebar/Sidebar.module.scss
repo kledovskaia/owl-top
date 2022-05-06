@@ -16,11 +16,11 @@
 
   &__firstLevel {
     h2 {
-      padding: 1rem 0;
       display: flex;
       align-items: center;
-      font-weight: 500;
+      padding: 1rem 0;
       font-size: 1.8rem;
+      font-weight: 500;
       line-height: 1.38;
 
       & > * + * {
@@ -29,24 +29,24 @@
     }
   }
   &__secondLevel {
-    border-left: 0.1rem solid #dfdfdf;
     padding: 0 3.2rem;
     margin: 0 1.2rem;
+    border-left: 0.1rem solid #dfdfdf;
 
     h3 {
       padding: 0.7rem 0;
-      text-transform: uppercase;
-      font-weight: 300;
       font-size: 1.2rem;
+      font-weight: 300;
       line-height: 1.33;
+      text-transform: uppercase;
     }
   }
   &__thirdLevel {
     h4 {
-      font-weight: 500;
-      font-size: 1.4rem;
-      line-height: 1.35;
       padding: 0.5rem 0;
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: 1.35;
     }
   }
 
@@ -59,9 +59,9 @@
       cursor: pointer;
       transition: color 0.1s;
       svg {
-        fill: currentColor;
         max-width: 2.5rem;
         max-height: 2.5rem;
+        fill: currentColor;
       }
 
       &:hover {

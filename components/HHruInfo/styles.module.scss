@@ -12,9 +12,9 @@
   }
 
   &__card {
+    background-color: var(--light);
     border-radius: 0.5rem;
     box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.05);
-    background-color: var(--light);
 
     h1,
     h2,
@@ -22,9 +22,9 @@
     h4,
     h5,
     h6 {
+      font-size: 2rem;
       font-weight: 300;
       line-height: 1.35;
-      font-size: 2rem;
     }
 
     p {
@@ -32,23 +32,23 @@
     }
   }
   &__vacancies {
-    padding: 2rem;
+    position: relative;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    padding: 2rem;
 
     & p {
+      padding: 1.2rem 0;
       font-size: 3.6rem;
       color: var(--primary);
-      padding: 1.2rem 0;
     }
   }
   &__salaries {
+    display: flex;
     grid-column: span 3;
     list-style-type: none;
-    display: flex;
 
     & p {
       font-size: 2.6rem;
@@ -56,13 +56,13 @@
     }
 
     & > * {
-      padding: 2rem;
-      flex: 1;
+      position: relative;
 
       display: flex;
+      flex: 1;
       flex-direction: column;
       align-items: center;
-      position: relative;
+      padding: 2rem;
 
       & > * + * {
         margin-top: 0.8rem;
@@ -71,14 +71,14 @@
 
     & > * + * {
       &::before {
-        content: '';
         position: absolute;
-        left: 0;
         top: 50%;
-        transform: translateY(-50%);
+        left: 0;
         width: 0.1rem;
         height: 70%;
+        content: '';
         background-color: var(--gray-light);
+        transform: translateY(-50%);
       }
     }
   }

@@ -1,12 +1,12 @@
 .button {
-  cursor: pointer;
   padding: 0.8rem;
   font-size: 1.4rem;
-  border-radius: 0.5rem;
-  border: 0.1rem solid currentColor;
   line-height: 1;
-  transition: all 0.2s;
+  cursor: pointer;
   background-color: var(--transparent);
+  border: 0.1rem solid currentColor;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
 
   &:hover {
     background-color: var(--transparent-light);
