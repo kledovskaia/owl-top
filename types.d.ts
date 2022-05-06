@@ -56,13 +56,20 @@ type Page = {
   tagsTitle: string
   tags: string[]
   blog: Blog
-  advantages: string[]
+  advantages: Advantage[]
   qas: any[]
   addresses: any[]
   createdAt: Date
   updatedAt: Date
   __v: number
   hh: Hh
+  seoText: string
+}
+
+type Advantage = {
+  _id: string
+  description: string
+  title: string
 }
 
 type Characteristic = {

@@ -12,12 +12,16 @@ const JobRating: FC<Props> = ({ className, value, outOf, ...props }) => {
   return (
     <div className={cn(className, styles.jobRating)} {...props}>
       <div className={styles.jobRating__items}>
-        {new Array(outOf).fill(<RoundStarIcon />)}
+        {new Array(outOf).fill(RoundStarIcon).map((Icon, i) => (
+          <Icon key={i} />
+        ))}
       </div>
       <div
         className={cn(styles.jobRating__items, styles.jobRating__items_filled)}
       >
-        {new Array(value).fill(<RoundStarIcon />)}
+        {new Array(value).fill(RoundStarIcon).map((Icon, i) => (
+          <Icon key={i} />
+        ))}
       </div>
     </div>
   )

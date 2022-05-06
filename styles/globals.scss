@@ -11,6 +11,7 @@
   --green-light: #c8f8e4;
   --gold: #dcb44e;
   --gray-blue: #b3c0d9;
+  --gray-2: #d2d2d2;
   --gray: #bbbbbb;
   --gray-light: #ebebeb;
   --transparent: rgba(0, 0, 0, 0);
@@ -22,7 +23,7 @@ html {
 }
 
 body {
-  color: var(--dark);
+  color: var(--text-dark);
   font-size: 1.6rem;
   font-family: 'Noto Sans', sans-serif;
   background-color: #e5e5e5;

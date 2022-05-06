@@ -7,6 +7,7 @@ import {
 } from 'next'
 import Head from 'next/head'
 import { ParsedUrlQuery } from 'querystring'
+import Advantages from '../../components/Advantages/Advantages'
 import HHruInfo from '../../components/HHruInfo/HHruInfo'
 import Skills from '../../components/Skills/Skills'
 import { getMenu } from '../../helper/getMenu'
@@ -76,7 +77,7 @@ const Page: NextPage<Props> = ({ page, products }) => {
         ))}
       </ul>
       <HHruInfo info={page.hh} title={page.category} />
-      {/* {!!page.advantages.length && <Advantages items={page.advantages} />} */}
+      {!!page.advantages.length && <Advantages items={page.advantages} />}
       <Skills items={page.tags} />
     </div>
   )
