@@ -4,6 +4,7 @@ import styles from './styles.module.scss'
 import Heading from '../Heading/Heading'
 import Salaries from './Salaries'
 import Vacancies from './Vacancies'
+import Tag from '../Tag/Tag'
 
 type Props = {
   info: Page['hh']
@@ -13,7 +14,10 @@ type Props = {
 const HHruInfo: FC<Props> = ({ className, info, title, ...props }) => {
   return (
     <section className={cn(className, styles.hhru)} {...props}>
-      <Heading h4>Вакансии - {title}</Heading>
+      <Heading h4>
+        <span>Вакансии - {title}</span>
+        <Tag red>hh.ru</Tag>
+      </Heading>
       <div className={styles.hhru__content}>
         <Vacancies className={cn(styles.hhru__card, styles.hhru__vacancies)}>
           {info.count}
