@@ -1,7 +1,7 @@
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { FC } from 'react'
 import Head from 'next/head'
-import { getMenu } from '../helper/getMenu'
+import { getMenu } from '../lib/getMenu'
 
 export const getStaticProps: GetStaticProps = async () => {
   const menu = await getMenu()

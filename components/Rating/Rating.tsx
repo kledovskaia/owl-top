@@ -1,10 +1,4 @@
-import {
-  DetailedHTMLProps,
-  FC,
-  Fragment,
-  HTMLAttributes,
-  useState,
-} from 'react'
+import { DetailedHTMLProps, FC, HTMLAttributes, useState } from 'react'
 import StarIcon from '../../public/star.svg'
 import cn from 'classnames'
 import styles from './Rating.module.scss'

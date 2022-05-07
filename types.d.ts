@@ -1,3 +1,5 @@
+type SortType = 'price' | 'rating'
+
 enum Category {
   courses = 0,
   school = 4,

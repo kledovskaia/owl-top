@@ -5,6 +5,10 @@ import styles from './Button.module.scss'
 enum Modifications {
   primary,
   ghost,
+  primaryGhost,
+  secondaryGhost,
+  bold,
+  large,
 }
 
 type Modification = keyof typeof Modifications
@@ -16,7 +20,7 @@ type Props = {
   HTMLButtonElement
 >
 
-const Button: FC<Props> = ({ className, children, ...props }) => {
+const Button: FC<Props> = ({ className, children, onClick, ...props }) => {
   const propEntries = Object.entries(props)
   const appliedModifications = propEntries.filter(
     ([key]) => key in Modifications,
@@ -35,6 +39,7 @@ const Button: FC<Props> = ({ className, children, ...props }) => {
           ]),
         ),
       )}
+      onClick={onClick}
       {...restProps}
     >
       {children}

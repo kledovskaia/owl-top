@@ -11,6 +11,7 @@ enum Modificators {
   small,
   medium,
   large,
+  bold,
 }
 
 type Modificator = keyof typeof Modificators

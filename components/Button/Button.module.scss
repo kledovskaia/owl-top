@@ -38,4 +38,25 @@
       border-color: var(--transparent-light);
     }
   }
+  &_primaryGhost {
+    color: var(--primary);
+    border: 0;
+    &:hover {
+      color: var(--primary-dark);
+      background: none;
+    }
+  }
+  &_secondaryGhost {
+    border: 0;
+    &:hover {
+      color: var(--primary-dark);
+      background: none;
+    }
+  }
+  &_bold {
+    font-weight: bold;
+  }
+  &_large {
+    font-size: 1.6rem;
+  }
 }

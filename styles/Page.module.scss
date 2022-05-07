@@ -1,0 +1,15 @@
+.productsPage {
+  &__content {
+    padding: 2rem 0;
+
+    & > * + * {
+      margin-top: 6rem;
+    }
+  }
+  &__productList {
+    list-style-type: none;
+    & > * + * {
+      margin-top: 3rem;
+    }
+  }
+}

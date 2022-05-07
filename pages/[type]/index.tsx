@@ -1,6 +1,6 @@
 import { InferGetStaticPropsType } from 'next'
 import { DetailedHTMLProps, FC, HTMLAttributes } from 'react'
-import { getMenu } from '../../helper/getMenu'
+import { getMenu } from '../../lib/getMenu'
 
 export const getStaticPaths = async () => {
   const { categories } = await import('../../data')
