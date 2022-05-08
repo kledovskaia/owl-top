@@ -9,6 +9,90 @@
     border-top: 0.1rem solid var(--gray-light);
   }
 
+  &__body {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1.4rem;
+    column-gap: 6rem;
+    padding-bottom: 1.8rem;
+  }
+  &__description {
+    flex-basis: 100%;
+  }
+
+  &__info {
+    flex: 1;
+  }
+  &__advantagesAndDisadvantages {
+    flex: 1;
+    & > * + * {
+      margin-top: 2rem;
+    }
+
+    h4 {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+  }
+  &__advantages,
+  &__disadvantages {
+    & > * + * {
+      margin-top: 0.5rem;
+    }
+    position: relative;
+    padding-left: 2rem;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 0.3rem;
+      content: '';
+      border-radius: 0.5rem;
+    }
+  }
+  &__advantages {
+    &::before {
+      background-color: var(--green);
+    }
+  }
+  &__disadvantages {
+    &::before {
+      background-color: var(--orange);
+    }
+  }
+
+  &__characteristics {
+    dt {
+      font-weight: bold;
+    }
+    dd {
+      font-weight: 500;
+    }
+    & > * + * {
+      margin-top: 1rem;
+    }
+    & > div {
+      display: flex;
+      align-items: center;
+      div {
+        flex: 1;
+        margin: 0 1rem;
+        margin-top: 1rem;
+        border-bottom: 0.1rem dotted var(--gray);
+      }
+    }
+  }
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    column-gap: 1rem;
+    margin-top: 1.4rem;
+    list-style-type: none;
+  }
+
   &__footer {
     display: flex;
     gap: 2rem;

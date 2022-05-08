@@ -32,9 +32,9 @@ const ProductHeader: FC<Props> = ({ className, item, ...props }) => {
         </span>
       </Heading>
       <div className={styles.productHeader__tags}>
-        {item.tags.map(tag => (
-          <Tag key={tag} ghost small>
-            {tag}
+        {item.categories.map(category => (
+          <Tag key={category} ghost small>
+            {category}
           </Tag>
         ))}
       </div>
