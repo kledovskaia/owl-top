@@ -8,4 +8,9 @@
     padding-top: 2.2rem;
     border-top: 0.1rem solid var(--gray-light);
   }
+
+  &__footer {
+    display: flex;
+    gap: 2rem;
+  }
 }

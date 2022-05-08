@@ -2,6 +2,8 @@ import { DetailedHTMLProps, FC, HTMLAttributes } from 'react'
 import cn from 'classnames'
 import styles from './Product.module.scss'
 import ProductHeader from '../ProductHeader/ProductHeader'
+import Button from '../Button/Button'
+import ArrowIcon from '../../public/arrow.svg'
 
 type Props = {
   item: Product
@@ -14,6 +16,15 @@ const Product: FC<Props> = ({ className, item, ...props }) => {
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, harum.
       </p>
+      <div className={styles.product__footer}>
+        <Button primary large>
+          Узнать подробнее
+        </Button>
+        <Button ghost large>
+          <span>Читать отзывы</span>
+          <ArrowIcon />
+        </Button>
+      </div>
     </section>
   )
 }
