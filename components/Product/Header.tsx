@@ -9,10 +9,11 @@ import { priceRu } from '../../helpers'
 import Rating from '../Rating/Rating'
 
 type Props = {
+  isLeader: boolean
   item: Product
 } & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
-const Header: FC<Props> = ({ className, item, ...props }) => {
+const Header: FC<Props> = ({ className, item, isLeader, ...props }) => {
   return (
     <div className={cn(className, styles.product__header)} {...props}>
       <div className={styles.product__logo}>
@@ -25,9 +26,11 @@ const Header: FC<Props> = ({ className, item, ...props }) => {
       </div>
       <Heading h3 className={styles.product__title}>
         {item.title}
-        <span className={styles.product__leader}>
-          <TrophyIcon />
-        </span>
+        {isLeader && (
+          <span className={styles.product__leader}>
+            <TrophyIcon />
+          </span>
+        )}
       </Heading>
       <div className={styles.product__categories}>
         {item.categories.map(category => (

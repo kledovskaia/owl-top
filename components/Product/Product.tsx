@@ -7,12 +7,13 @@ import Footer from './Footer'
 
 type Props = {
   item: Product
+  isLeader: boolean
 } & DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
 
-const Product: FC<Props> = ({ className, item, ...props }) => {
+const Product: FC<Props> = ({ className, item, isLeader, ...props }) => {
   return (
     <section className={cn(className, styles.product)} {...props}>
-      <Header item={item} />
+      <Header item={item} isLeader={isLeader} />
       <Body item={item} />
       <Footer />
     </section>

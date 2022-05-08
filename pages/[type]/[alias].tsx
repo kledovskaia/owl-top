@@ -7,7 +7,7 @@ import {
 } from 'next'
 import Head from 'next/head'
 import { ParsedUrlQuery } from 'querystring'
-import { useCallback, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import Advantages from '../../components/Advantages/Advantages'
 import Controls from '../../components/Controls/Controls'
 import Heading from '../../components/Heading/Heading'
@@ -77,6 +77,13 @@ const Page: NextPage<Props> = ({ page, products }) => {
     setSortType('rating')
   }, [])
 
+  const highestRating = useMemo(() => {
+    return products.reduce(
+      (max, item) => (max = Math.max(max, item.initialRating)),
+      0,
+    )
+  }, [products])
+
   return (
     <main className={styles.productsPage}>
       <Head>
@@ -101,7 +108,10 @@ const Page: NextPage<Props> = ({ page, products }) => {
         <ul className={styles.productsPage__productList}>
           {products.map(product => (
             <li key={product._id}>
-              <Product item={product} />
+              <Product
+                isLeader={highestRating === product.initialRating}
+                item={product}
+              />
             </li>
           ))}
         </ul>
