@@ -10,9 +10,6 @@ type Props = {
 } & DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
 
 const Product: FC<Props> = ({ className, item, ...props }) => {
-  console.log(item.advantages)
-  console.log(item.disAdvantages)
-
   return (
     <section className={cn(className, styles.product)} {...props}>
       <Header item={item} />

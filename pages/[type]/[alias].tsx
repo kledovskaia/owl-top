@@ -99,14 +99,11 @@ const Page: NextPage<Props> = ({ page, products }) => {
 
       <div className={styles.productsPage__content}>
         <ul className={styles.productsPage__productList}>
-          <li>
-            <Product item={products[0]} />
-          </li>
-          {/* {products.map(product => (
-          <li key={product._id}>
-            <Product item={product} />
-          </li>
-        ))} */}
+          {products.map(product => (
+            <li key={product._id}>
+              <Product item={product} />
+            </li>
+          ))}
         </ul>
         <HHruInfo info={page.hh} title={page.category} />
         {!!page.advantages.length && <Advantages items={page.advantages} />}

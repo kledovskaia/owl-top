@@ -13,8 +13,6 @@ type Props = {
 } & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 const Header: FC<Props> = ({ className, item, ...props }) => {
-  console.log(item.initialRating)
-
   return (
     <div className={cn(className, styles.product__header)} {...props}>
       <div className={styles.product__logo}>
