@@ -1,13 +1,13 @@
 .mainPage {
-  padding: 4rem 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
-  align-items: flex-start;
   gap: 7rem;
+  align-items: flex-start;
+  padding: 4rem 0;
 
   a {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
   }
 
   &__content {
@@ -16,8 +16,8 @@
     }
   }
   &__title {
-    white-space: nowrap;
     font-size: 5rem;
+    white-space: nowrap;
   }
 
   &__list {
@@ -29,8 +29,8 @@
   }
 
   &__item {
-    border-radius: 5rem;
     background-color: var(--light);
+    border-radius: 5rem;
     transition: color 0.1s;
 
     &:hover {
