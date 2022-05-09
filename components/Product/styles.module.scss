@@ -28,6 +28,7 @@
   &__title {
     grid-column: 2 / 3;
     align-items: flex-start;
+    align-self: flex-end;
   }
 
   &__leader {
