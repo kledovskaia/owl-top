@@ -11,6 +11,7 @@ import {
 import Heading from '../../components/Heading/Heading'
 import { menuItems } from '../../data'
 import cn from 'classnames'
+import Link from 'next/link'
 
 type Props = {
   info: MenuProps
@@ -28,31 +29,29 @@ const FirstLevel: FC<Props> = ({
   isInitiallyOpen,
   ...props
 }) => {
-  const [isOpen, setIsOpen] = useState(isInitiallyOpen || false)
   const isInPath = useMemo(
     () => router.asPath.split('/').includes(info.firstCategoryName),
     [router, info.firstCategoryName],
   )
 
-  const handleClick = useCallback(() => {
-    if (!isInPath) setIsOpen(state => !state)
-  }, [isInPath])
-
   return (
     <li className={className} {...props}>
-      <Heading
-        h2
-        handleClick={handleClick}
-        className={cn({
-          [activeClassName]: router.asPath
-            .split('/')
-            .includes(info.firstCategoryName),
-        })}
-      >
-        {menuItems[info.firstCategory].icon}
-        <span>{info.firstCategoryLabel}</span>
-      </Heading>
-      {(isOpen || isInPath) && children}
+      <Link href={`/${info.firstCategoryName}`}>
+        <a>
+          <Heading
+            h2
+            className={cn({
+              [activeClassName]: router.asPath
+                .split('/')
+                .includes(info.firstCategoryName),
+            })}
+          >
+            {menuItems[info.firstCategory].icon}
+            <span>{info.firstCategoryLabel}</span>
+          </Heading>
+        </a>
+      </Link>
+      {(isInitiallyOpen || isInPath) && children}
     </li>
   )
 }
