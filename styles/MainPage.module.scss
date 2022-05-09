@@ -1,0 +1,55 @@
+.mainPage {
+  padding: 4rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
+  align-items: flex-start;
+  gap: 7rem;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__content {
+    & > * + * {
+      margin-top: 4rem;
+    }
+  }
+  &__title {
+    white-space: nowrap;
+    font-size: 5rem;
+  }
+
+  &__list {
+    list-style-type: none;
+
+    & > * + * {
+      margin-top: 2rem;
+    }
+  }
+
+  &__item {
+    border-radius: 5rem;
+    background-color: var(--light);
+    transition: color 0.1s;
+
+    &:hover {
+      color: var(--primary-dark);
+    }
+  }
+  &__iconContainer {
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: var(--primary);
+    border-radius: 50%;
+
+    svg {
+      max-width: 3rem;
+      max-height: 3rem;
+      fill: var(--light);
+    }
+  }
+}

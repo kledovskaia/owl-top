@@ -11,31 +11,31 @@
 
   &__iconContainer {
     display: block;
-    padding: 1.5rem;
-    border-radius: 50%;
-    background-color: var(--primary);
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: var(--primary);
+    border-radius: 50%;
 
     svg {
-      fill: var(--light);
-      max-height: 5rem;
       max-width: 5rem;
+      max-height: 5rem;
+      fill: var(--light);
     }
   }
 
   &__cardsContainer {
-    list-style-type: none;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
     gap: 3rem;
+    list-style-type: none;
   }
 
   &__card {
-    border-radius: 1rem;
     padding: 3rem;
     background-color: var(--light);
+    border-radius: 1rem;
 
     & > * + * {
       margin-top: 2rem;
@@ -47,9 +47,9 @@
 
     a {
       display: block;
+      padding: 1rem 0;
       color: inherit;
       text-decoration: none;
-      padding: 1rem 0;
       transition: color 0.1s;
 
       &:hover {
