@@ -1,13 +1,5 @@
 import { NextRouter } from 'next/router'
-import {
-  DetailedHTMLProps,
-  FC,
-  HTMLAttributes,
-  memo,
-  useCallback,
-  useMemo,
-  useState,
-} from 'react'
+import { DetailedHTMLProps, FC, HTMLAttributes, memo, useMemo } from 'react'
 import Heading from '../../components/Heading/Heading'
 import { menuItems } from '../../data'
 import cn from 'classnames'

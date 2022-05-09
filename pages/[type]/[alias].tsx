@@ -17,7 +17,7 @@ import Product from '../../components/Product/Product'
 import Skills from '../../components/Skills/Skills'
 import Tag from '../../components/Tag/Tag'
 import { getMenu } from '../../lib/getMenu'
-import styles from '../../styles/Page.module.scss'
+import styles from '../../styles/ProductsPage.module.scss'
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = []

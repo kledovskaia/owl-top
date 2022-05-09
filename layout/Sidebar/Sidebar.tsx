@@ -10,6 +10,7 @@ import FirstLevel from './FirstLevel'
 import SecondLevel from './SecondLevel'
 import ThirdLevel from './ThirdLevel'
 import { Category } from '../../data'
+import Link from 'next/link'
 
 type Props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
@@ -25,7 +26,11 @@ const Sidebar: FC<Props> = ({ className, ...props }) => {
 
   return (
     <nav className={cn(className, styles.sidebar)} {...props}>
-      <Logo />
+      <Link href="/">
+        <a>
+          <Logo />
+        </a>
+      </Link>
       <Search />
       <ul className={styles.sidebar__firstLevel}>
         {menu.map(firstLevel => (
