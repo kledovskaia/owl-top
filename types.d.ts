@@ -1,4 +1,5 @@
 type SortType = 'price' | 'rating'
+type SortOrder = 'asc' | 'desc'
 
 enum Category {
   courses = 0,

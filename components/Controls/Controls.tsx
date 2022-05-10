@@ -16,6 +16,7 @@ type Props = {
   handleRatingSort: () => void
   handlePriceSort: () => void
   currentSortType: SortType
+  currentSortOrder: SortOrder
 } & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 const Controls: FC<Props> = ({
@@ -23,10 +24,16 @@ const Controls: FC<Props> = ({
   handleRatingSort,
   handlePriceSort,
   currentSortType,
+  currentSortOrder,
   ...props
 }) => {
   return (
-    <div className={cn(className, styles.controls)} {...props}>
+    <div
+      className={cn(className, styles.controls, {
+        [styles.controls_reverse]: currentSortOrder === 'asc',
+      })}
+      {...props}
+    >
       {sortVariants.map(sort => (
         <Button
           key={sort.type}
@@ -47,7 +54,11 @@ const Controls: FC<Props> = ({
               : null
           }
         >
-          {currentSortType === sort.type && <SortIcon />}
+          <SortIcon
+            className={cn(styles.controls__icon, {
+              [styles.controls__icon_shown]: currentSortType === sort.type,
+            })}
+          />
           <span>{sort.label}</span>
         </Button>
       ))}

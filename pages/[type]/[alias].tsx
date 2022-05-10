@@ -7,7 +7,7 @@ import {
 } from 'next'
 import Head from 'next/head'
 import { ParsedUrlQuery } from 'querystring'
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import Advantages from '../../components/Advantages/Advantages'
 import Controls from '../../components/Controls/Controls'
 import Heading from '../../components/Heading/Heading'
@@ -69,13 +69,44 @@ type Props = {
 
 const Page: NextPage<Props> = ({ page, products }) => {
   const [sortType, setSortType] = useState<SortType>('rating')
+  const [sortOrder, setSortOrder] = useState<SortOrder>('desc')
+  const [sortedProducts, setSortedProducts] = useState(products)
+
+  useEffect(() => {
+    setSortedProducts(state => {
+      let result = [...state]
+      switch (sortType) {
+        case 'price':
+          result.sort((a, b) => b.price - a.price)
+          break
+        case 'rating':
+          result.sort((a, b) => b.initialRating - a.initialRating)
+          break
+      }
+      switch (sortOrder) {
+        case 'asc':
+          result.reverse()
+      }
+      return result
+    })
+  }, [sortType, sortOrder])
 
   const handlePriceSort = useCallback(() => {
-    setSortType('price')
-  }, [])
+    if (sortType === 'price') {
+      setSortOrder(state => (state === 'asc' ? 'desc' : 'asc'))
+    } else {
+      setSortType('price')
+      setSortOrder('desc')
+    }
+  }, [sortType])
   const handleRatingSort = useCallback(() => {
-    setSortType('rating')
-  }, [])
+    if (sortType === 'rating') {
+      setSortOrder(state => (state === 'asc' ? 'desc' : 'asc'))
+    } else {
+      setSortType('rating')
+      setSortOrder('desc')
+    }
+  }, [sortType])
 
   const highestRating = useMemo(() => {
     return products.reduce(
@@ -98,6 +129,7 @@ const Page: NextPage<Props> = ({ page, products }) => {
           </Tag>
         </Heading>
         <Controls
+          currentSortOrder={sortOrder}
           currentSortType={sortType}
           handlePriceSort={handlePriceSort}
           handleRatingSort={handleRatingSort}
@@ -106,7 +138,7 @@ const Page: NextPage<Props> = ({ page, products }) => {
 
       <div className={styles.productsPage__content}>
         <ul className={styles.productsPage__productList}>
-          {products.map(product => (
+          {sortedProducts.map(product => (
             <li key={product._id}>
               <Product
                 isLeader={highestRating === product.initialRating}
