@@ -13,8 +13,8 @@
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: 7rem 1.5fr repeat(3, 0.4fr);
-    row-gap: 0.5rem;
     column-gap: 3rem;
+    row-gap: 0.5rem;
     padding-bottom: 1rem;
   }
   &__logo {
@@ -78,6 +78,60 @@
     align-self: flex-start;
     font-size: 1.4rem;
     font-weight: 300;
+  }
+  @media screen and (max-width: 1480px) {
+    &__header {
+      justify-items: center;
+      column-gap: 2rem;
+      grid-template-columns: 7rem repeat(3, 1fr);
+    }
+    &__title,
+    &__categories {
+      grid-column: 2 / -1;
+    }
+    &__label {
+      grid-row: 4 / 5;
+    }
+    &__logo {
+      grid-row: 1 / 5;
+      grid-column: 1 / 2;
+    }
+  }
+  @media screen and (max-width: 1080px) {
+    &__header {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    &__label {
+      grid-row: 4 / 5;
+    }
+    &__rating {
+      grid-column: 1 / -1;
+    }
+    &__rating + &__label {
+      grid-column: 1 / -1;
+      grid-row: initial;
+    }
+  }
+  @media screen and (max-width: 950px) {
+    &__header {
+      justify-content: center;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    &__logo {
+      grid-column: 1 / -1;
+      grid-row: 1 / 2;
+    }
+    &__title {
+      grid-row: 2 / 3;
+      grid-column: 1 / -1;
+    }
+    &__categories {
+      grid-row: 3 / 4;
+      grid-column: 1 / -1;
+    }
+    &__label {
+      grid-row: 5 / 6;
+    }
   }
 
   &__body {
@@ -164,8 +218,32 @@
     list-style-type: none;
   }
 
+  @media screen and (max-width: 1150px) {
+    &__advantagesAndDisadvantages,
+    &__info {
+      flex-basis: 100%;
+    }
+  }
+
   &__footer {
     display: flex;
     gap: 2rem;
+  }
+  @media screen and (max-width: 500px) {
+    &__footer {
+      & > * {
+        flex: 1;
+      }
+    }
+  }
+  @media screen and (max-width: 430px) {
+    &__footer {
+      gap: 1rem;
+      flex-wrap: wrap;
+
+      & > * {
+        flex-basis: 100%;
+      }
+    }
   }
 }
